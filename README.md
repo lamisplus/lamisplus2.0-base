@@ -10,6 +10,8 @@ This is an Open source Electronic Medical Record (EMR) Application.
 #Requirements
 *   Java 1.8
 *   Postgres SQL
+*   ReactJs
+
 
 # Getting started
     1.  Prerequisites
