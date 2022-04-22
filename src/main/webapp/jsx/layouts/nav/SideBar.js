@@ -97,22 +97,15 @@ const SideBar = (props) => {
           }
   }
   /// Active menu
-  let deshBoard = ["dashboard"],
-    admin = [
-      "users",
-      "roles",
-      "bootstrap-modules",
-      "application-codeset",
-      "organisation-unit",
-      "application-matrics",
-      "log-configuration",
-      "health-checks",
-      "system-configuration",
-      "menu"
-    ],
+  let deshBoard = [],
+    subMainMenu = [],
     sysInfo = ["application-matrics", "log-configuration", "health-checks", "system-configuration"];
-
-    
+    const MainMenu= props.menuList.map(item => {
+        deshBoard.push(item.name)
+        return item;
+    })
+    console.log(props.menuList)
+    console.log(deshBoard)
     
   return (
     <div
@@ -134,19 +127,20 @@ const SideBar = (props) => {
           {props.menuList && props.menuList.map((menu, index) => (
 
               <>
-                  <li className={`${admin.includes(path) ? "mm-active" : ""}`} style={{color: '#798087', padding: '2px'}}
+                  <li className={`${deshBoard.includes(path) ? "mm-active" : ""}`} style={{color: '#798087', padding: '2px'}}
                       show={"false"}>
-                    <Link className={menu.subs && menu.subs.length>0 ?"has-arrow ai-icon":""}  to={{ pathname: menu.moduleId===null ? menu.url : "modules", state: menu.url}}
+                    <Link className={menu.subs && menu.subs.length>0 ?"has-arrow ai-icon":""}  to={{ pathname: menu.moduleId===null ? (menu.url!==null?menu.url:"#" ): "modules", state: menu.url}}
+
                           style={{color: '#798087', padding: '1px', backgroundColor: 'white'}}>
-                      <i className={menu.icon!==null ? menu.icon : "flaticon-087-stop"} style={{color: '#24a4eb'}}/>
+                      <i className={menu.icon!==null && menu.icon!=="wc"? menu.icon : "flaticon-087-stop"} style={{color: '#24a4eb'}}/>
                       <span className="nav-text" style={{color: '#24a4eb'}}>{menu.name}</span>
                     </Link>
                     {menu.subs.length>0 ?
                         menu.subs.map((subMenu, index) => (
                             <>
-                              <ul>
+                              <ul style={{padding: "0.1rem 0 !important"}}>
                                 <li>
-                                  <Link style={{color: '#798087'}} className={`${path === "users" ? "mm-active" : ""}`} to={subMenu.moduleId && subMenu.moduleId!==null? "modules": subMenu.url  }>
+                                  <Link style={{color: '#798087', padding: '-10px !important'}} className={`${path === "${subMenu.name}" ? "mm-active" : ""}`} to={subMenu.moduleId && subMenu.moduleId!==null? "modules": subMenu.url  }>
                                     {subMenu.name} {subMenu.moduleId}
                                   </Link>
                                   {subMenu.subs && subMenu.subs.length > 0 ?
@@ -154,7 +148,7 @@ const SideBar = (props) => {
                                         <>
                                           <li className="ms-2">
                                             <Link style={{color: '#798087'}}
-                                                  className={`${path === "log-configuration" ? "mm-active" : ""}`} to={!subSubMenu.moduleId || subSubMenu.moduleId===null? subSubMenu.url : "modules" }>
+                                                  className={`${path === "system-information" ? "mm-active" : ""}`} to={!subSubMenu.moduleId || subSubMenu.moduleId===null? subSubMenu.url : "modules" }>
                                                       <span className="align-middle me-1">
                                                         <i className="ti-angle-right"></i>
                                                       </span>{" "}{subSubMenu.name}
