@@ -5,13 +5,13 @@ import org.apache.commons.lang3.math.NumberUtils;
 import org.lamisplus.modules.base.controller.apierror.EntityNotFoundException;
 import org.lamisplus.modules.base.controller.apierror.RecordExistException;
 import org.lamisplus.modules.base.domain.dto.UserDTO;
-import org.lamisplus.modules.base.domain.entity.ApplicationUserOrganisationUnit;
-import org.lamisplus.modules.base.domain.entity.OrganisationUnit;
-import org.lamisplus.modules.base.domain.entity.Role;
-import org.lamisplus.modules.base.domain.entity.User;
+import org.lamisplus.modules.base.domain.entities.ApplicationUserOrganisationUnit;
+import org.lamisplus.modules.base.domain.entities.OrganisationUnit;
+import org.lamisplus.modules.base.domain.entities.Role;
+import org.lamisplus.modules.base.domain.entities.User;
 import org.lamisplus.modules.base.domain.mapper.UserMapper;
-import org.lamisplus.modules.base.repository.RoleRepository;
-import org.lamisplus.modules.base.repository.UserRepository;
+import org.lamisplus.modules.base.domain.repositories.RoleRepository;
+import org.lamisplus.modules.base.domain.repositories.UserRepository;
 import org.lamisplus.modules.base.security.RolesConstants;
 import org.lamisplus.modules.base.security.SecurityUtils;
 import org.springframework.data.domain.Page;
@@ -24,7 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 import static org.lamisplus.modules.base.util.Constants.ArchiveStatus.ARCHIVED;
-import static org.lamisplus.modules.base.util.Constants.ArchiveStatus.UN_ARCHIVED;
 
 
 @Service

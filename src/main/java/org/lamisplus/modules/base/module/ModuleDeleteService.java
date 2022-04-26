@@ -2,11 +2,11 @@ package org.lamisplus.modules.base.module;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.lamisplus.modules.base.domain.entity.ModuleArtifact;
-import org.lamisplus.modules.base.domain.entity.Module;
-import org.lamisplus.modules.base.repository.MenuRepository;
-import org.lamisplus.modules.base.repository.ModuleArtifactRepository;
-import org.lamisplus.modules.base.repository.ModuleRepository;
+import org.lamisplus.modules.base.domain.entities.ModuleArtifact;
+import org.lamisplus.modules.base.domain.entities.Module;
+import org.lamisplus.modules.base.domain.repositories.MenuRepository;
+import org.lamisplus.modules.base.domain.repositories.ModuleArtifactRepository;
+import org.lamisplus.modules.base.domain.repositories.ModuleRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

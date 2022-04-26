@@ -3,7 +3,7 @@ package org.lamisplus.modules.base.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lamisplus.modules.base.domain.dto.OrganisationUnitDTO;
-import org.lamisplus.modules.base.domain.entity.OrganisationUnit;
+import org.lamisplus.modules.base.domain.entities.OrganisationUnit;
 import org.lamisplus.modules.base.service.OrganisationUnitService;
 import org.lamisplus.modules.base.util.PaginationUtil;
 import org.springframework.data.domain.Page;

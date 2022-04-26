@@ -1,13 +1,12 @@
 package org.lamisplus.modules.base.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.lamisplus.modules.base.controller.apierror.EntityNotFoundException;
 import org.lamisplus.modules.base.controller.vm.ManagedUserVM;
 import org.lamisplus.modules.base.domain.dto.UserDTO;
-import org.lamisplus.modules.base.domain.entity.Role;
-import org.lamisplus.modules.base.domain.entity.User;
-import org.lamisplus.modules.base.repository.RoleRepository;
-import org.lamisplus.modules.base.repository.UserRepository;
+import org.lamisplus.modules.base.domain.entities.Role;
+import org.lamisplus.modules.base.domain.entities.User;
+import org.lamisplus.modules.base.domain.repositories.RoleRepository;
+import org.lamisplus.modules.base.domain.repositories.UserRepository;
 import org.lamisplus.modules.base.service.UserService;
 import org.lamisplus.modules.base.util.PaginationUtil;
 import org.springframework.data.domain.Page;

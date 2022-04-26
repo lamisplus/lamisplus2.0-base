@@ -1,7 +1,7 @@
 package org.lamisplus.modules.base.domain.mapper;
 
 import org.lamisplus.modules.base.domain.dto.OrganisationUnitDTO;
-import org.lamisplus.modules.base.domain.entity.OrganisationUnit;
+import org.lamisplus.modules.base.domain.entities.OrganisationUnit;
 import org.mapstruct.Mapper;
 
 import java.util.List;

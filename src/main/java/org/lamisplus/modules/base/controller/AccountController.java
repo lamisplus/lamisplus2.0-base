@@ -2,25 +2,15 @@ package org.lamisplus.modules.base.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.lamisplus.modules.base.controller.apierror.EntityNotFoundException;
-import org.lamisplus.modules.base.controller.vm.ManagedUserVM;
 import org.lamisplus.modules.base.domain.dto.UserDTO;
-import org.lamisplus.modules.base.domain.entity.ApplicationUserOrganisationUnit;
-import org.lamisplus.modules.base.domain.entity.User;
-import org.lamisplus.modules.base.repository.ApplicationUserOrganisationUnitRepository;
-import org.lamisplus.modules.base.repository.UserRepository;
+import org.lamisplus.modules.base.domain.entities.ApplicationUserOrganisationUnit;
+import org.lamisplus.modules.base.domain.entities.User;
+import org.lamisplus.modules.base.domain.repositories.ApplicationUserOrganisationUnitRepository;
+import org.lamisplus.modules.base.domain.repositories.UserRepository;
 import org.lamisplus.modules.base.service.UserService;
-import org.lamisplus.modules.base.util.PaginationUtil;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.validation.Valid;
 import java.security.Principal;
-import java.util.List;
 import java.util.Optional;
 
 @RestController

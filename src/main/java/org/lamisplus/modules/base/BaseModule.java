@@ -1,6 +1,7 @@
 package org.lamisplus.modules.base;
 
 import com.foreach.across.core.AcrossModule;
+import com.foreach.across.core.annotations.AcrossDepends;
 import com.foreach.across.core.context.configurer.ComponentScanConfigurer;
 import com.foreach.across.modules.hibernate.jpa.AcrossHibernateJpaModule;
 import com.foreach.across.modules.web.AcrossWebModule;
@@ -11,11 +12,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@AcrossApplication(
-        modules = {
-                AcrossHibernateJpaModule.NAME,
-                AcrossWebModule.NAME
-        })
+@AcrossDepends(required = {
+        AcrossHibernateJpaModule.NAME,
+        AcrossWebModule.NAME
+})
 @Slf4j
 @EnableSwagger2
 @EnableAsync

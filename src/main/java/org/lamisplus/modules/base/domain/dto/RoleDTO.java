@@ -3,7 +3,7 @@ package org.lamisplus.modules.base.domain.dto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.lamisplus.modules.base.domain.entity.Permission;
+import org.lamisplus.modules.base.domain.entities.Permission;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;

@@ -4,10 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.lamisplus.modules.base.domain.entity.ApplicationUserOrganisationUnit;
-import org.lamisplus.modules.base.domain.entity.Permission;
-import org.lamisplus.modules.base.domain.entity.Role;
-import org.lamisplus.modules.base.domain.entity.User;
+import org.lamisplus.modules.base.domain.entities.ApplicationUserOrganisationUnit;
+import org.lamisplus.modules.base.domain.entities.Permission;
+import org.lamisplus.modules.base.domain.entities.Role;
+import org.lamisplus.modules.base.domain.entities.User;
 
 import javax.validation.constraints.NotBlank;
 import java.util.HashSet;

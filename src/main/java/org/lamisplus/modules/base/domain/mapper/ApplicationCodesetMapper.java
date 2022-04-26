@@ -2,7 +2,7 @@ package org.lamisplus.modules.base.domain.mapper;
 
 
 import org.lamisplus.modules.base.domain.dto.ApplicationCodesetDTO;
-import org.lamisplus.modules.base.domain.entity.ApplicationCodeSet;
+import org.lamisplus.modules.base.domain.entities.ApplicationCodeSet;
 import org.mapstruct.*;
 
 import java.util.List;

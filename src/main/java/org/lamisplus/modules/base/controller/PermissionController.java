@@ -1,8 +1,8 @@
 package org.lamisplus.modules.base.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.lamisplus.modules.base.domain.entity.Permission;
-import org.lamisplus.modules.base.repository.PermissionRepository;
+import org.lamisplus.modules.base.domain.entities.Permission;
+import org.lamisplus.modules.base.domain.repositories.PermissionRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

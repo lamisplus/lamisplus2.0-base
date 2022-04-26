@@ -1,21 +1,10 @@
 package org.lamisplus.modules.base.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import org.lamisplus.modules.base.domain.entity.Menu;
-import org.lamisplus.modules.base.domain.entity.Module;
-import org.lamisplus.modules.base.domain.enumeration.MenuLevel;
-import org.lamisplus.modules.base.domain.enumeration.MenuType;
-import org.springframework.data.domain.Persistable;
+import org.lamisplus.modules.base.domain.entities.Menu;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;

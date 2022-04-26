@@ -5,8 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.lamisplus.modules.base.repository.ModuleRepository;
-import org.lamisplus.modules.base.domain.entity.Module;
+import org.lamisplus.modules.base.domain.repositories.ModuleRepository;
+import org.lamisplus.modules.base.domain.entities.Module;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 

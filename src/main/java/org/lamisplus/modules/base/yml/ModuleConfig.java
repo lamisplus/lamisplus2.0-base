@@ -1,8 +1,8 @@
 package org.lamisplus.modules.base.yml;
 
 import lombok.Data;
-import org.lamisplus.modules.base.domain.entity.Authority;
-import org.lamisplus.modules.base.domain.entity.Menu;
+import org.lamisplus.modules.base.domain.entities.Authority;
+import org.lamisplus.modules.base.domain.entities.Menu;
 
 import java.util.ArrayList;
 import java.util.HashMap;

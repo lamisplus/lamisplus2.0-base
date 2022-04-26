@@ -2,9 +2,9 @@ package org.lamisplus.modules.base.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lamisplus.modules.base.configurer.ContextProvider;
-import org.lamisplus.modules.base.domain.entity.ModuleDependency;
-import org.lamisplus.modules.base.domain.entity.Module;
-import org.lamisplus.modules.base.repository.ModuleDependencyRepository;
+import org.lamisplus.modules.base.domain.entities.ModuleDependency;
+import org.lamisplus.modules.base.domain.entities.Module;
+import org.lamisplus.modules.base.domain.repositories.ModuleDependencyRepository;
 
 import java.util.List;
 

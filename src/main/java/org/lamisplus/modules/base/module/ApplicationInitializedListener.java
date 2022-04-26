@@ -3,7 +3,7 @@ package org.lamisplus.modules.base.module;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.SystemUtils;
-import org.lamisplus.modules.base.repository.ModuleRepository;
+import org.lamisplus.modules.base.domain.repositories.ModuleRepository;
 import org.lamisplus.modules.base.util.CyclicDependencyException;
 import org.lamisplus.modules.base.util.ModuleDependencyResolver;
 import org.lamisplus.modules.base.util.UnsatisfiedDependencyException;
@@ -12,7 +12,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-import org.lamisplus.modules.base.domain.entity.Module;
+import org.lamisplus.modules.base.domain.entities.Module;
 
 import java.net.URI;
 import java.util.ArrayList;

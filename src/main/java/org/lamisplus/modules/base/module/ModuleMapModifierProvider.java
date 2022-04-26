@@ -1,7 +1,7 @@
 package org.lamisplus.modules.base.module;
 
 import com.foreach.across.core.annotations.Exposed;
-import org.lamisplus.modules.base.domain.entity.Module;
+import org.lamisplus.modules.base.domain.entities.Module;
 
 @Exposed
 public interface ModuleMapModifierProvider {

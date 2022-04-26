@@ -3,9 +3,8 @@ package org.lamisplus.modules.base.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lamisplus.modules.base.domain.dto.MenuDTO;
-import org.lamisplus.modules.base.domain.entity.Menu;
+import org.lamisplus.modules.base.domain.entities.Menu;
 import org.lamisplus.modules.base.service.MenuService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

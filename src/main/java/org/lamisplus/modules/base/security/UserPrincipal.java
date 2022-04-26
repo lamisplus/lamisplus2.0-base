@@ -1,6 +1,6 @@
 package org.lamisplus.modules.base.security;
 
-import org.lamisplus.modules.base.domain.entity.User;
+import org.lamisplus.modules.base.domain.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

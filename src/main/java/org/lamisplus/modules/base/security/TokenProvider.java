@@ -3,8 +3,8 @@ package org.lamisplus.modules.base.security;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import org.lamisplus.modules.base.domain.entity.Role;
-import org.lamisplus.modules.base.repository.UserRepository;
+import org.lamisplus.modules.base.domain.entities.Role;
+import org.lamisplus.modules.base.domain.repositories.UserRepository;
 import org.lamisplus.modules.base.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +51,7 @@ public class TokenProvider {
         } else {
             validity = new Date(now + this.tokenValidityInMilliseconds);
         }
-        org.lamisplus.modules.base.domain.entity.User user = userService.getUserWithRoles().get();
+        org.lamisplus.modules.base.domain.entities.User user = userService.getUserWithRoles().get();
         //getting & adding user details to token
         String name = user.getFirstName() + " " +
                 userService.getUserWithRoles().get().getLastName();

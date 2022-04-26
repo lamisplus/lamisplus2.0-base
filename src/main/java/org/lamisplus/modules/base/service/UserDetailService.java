@@ -1,7 +1,7 @@
 package org.lamisplus.modules.base.service;
 
-import org.lamisplus.modules.base.domain.entity.User;
-import org.lamisplus.modules.base.repository.UserRepository;
+import org.lamisplus.modules.base.domain.entities.User;
+import org.lamisplus.modules.base.domain.repositories.UserRepository;
 import org.lamisplus.modules.base.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

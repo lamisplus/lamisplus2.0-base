@@ -1,7 +1,7 @@
 package org.lamisplus.modules.base.module;
 
 import lombok.Data;
-import org.lamisplus.modules.base.domain.entity.Module;
+import org.lamisplus.modules.base.domain.entities.Module;
 
 @Data
 public class ModuleResponse {
