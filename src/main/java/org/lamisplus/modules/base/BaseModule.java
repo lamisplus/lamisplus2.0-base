@@ -12,7 +12,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@AcrossDepends(required = {
+@AcrossDepends(
+        required = {
         AcrossHibernateJpaModule.NAME,
         AcrossWebModule.NAME
 })
@@ -21,17 +22,26 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableAsync
 @EnableScheduling
 public class BaseModule extends AcrossModule {
+
     public final static String NAME = "BaseModule";
 
     public BaseModule() {
-        super();
-        addApplicationContextConfigurer(new ComponentScanConfigurer(getClass().getPackage().getName() + ".module",
-                getClass().getPackage().getName() + ".configurer", getClass().getPackage().getName() + ".controller",
-                getClass().getPackage().getName() + ".domain", getClass().getPackage().getName() + ".repository",
-                getClass().getPackage().getName() + ".service", getClass().getPackage().getName() + ".yml",
-                getClass().getPackage().getName() + ".util", getClass().getPackage().getName()+ ".security",
-                getClass().getPackage().getName() + ".interceptor", getClass().getPackage().getName() + ".extensions",
-                getClass().getPackage().getName() +".installers", "org.springframework.web.socket"));
+        super ();
+        addApplicationContextConfigurer (new ComponentScanConfigurer (
+                getClass ().getPackage ().getName () + ".module",
+                getClass ().getPackage ().getName () + ".configurer",
+                getClass ().getPackage ().getName () + ".controller",
+                getClass ().getPackage ().getName () + ".domain",
+                getClass ().getPackage ().getName () + ".repository",
+                getClass ().getPackage ().getName () + ".service",
+                getClass ().getPackage ().getName () + ".yml",
+                getClass ().getPackage ().getName () + ".util",
+                getClass ().getPackage ().getName () + ".security",
+                getClass ().getPackage ().getName () + ".interceptor",
+                getClass ().getPackage ().getName () + ".extensions",
+                getClass ().getPackage ().getName () + ".installers"
+//                "org.springframework.web.socket"
+        ));
     }
 
     @Override
@@ -41,5 +51,6 @@ public class BaseModule extends AcrossModule {
 
     @Override
     public String getDescription() {
-        return "Module containing LAMISPlus";    }
+        return "Module containing LAMISPlus";
+    }
 }
