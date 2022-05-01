@@ -22,4 +22,5 @@ public class EntityScanConfiguration implements HibernatePackageConfigurer {
     public void configureHibernatePackage(HibernatePackageRegistry hibernatePackageRegistry) {
         hibernatePackageRegistry.addPackageToScan(BaseDomain.class);
     }
+
 }

@@ -26,22 +26,22 @@ public class ModuleDeleteService {
 
     @Transactional
     public void deleteModule(Module module) {
-        Optional<ModuleArtifact> artifact = moduleArtifactRepository.findByModule(module);
-        artifact.ifPresent(moduleArtifactRepository::delete);
-        transactionTemplate.execute(ts -> {
-            menuRepository.findByModule(module).stream()
-                    .sorted((m1, m2) -> m2.getId().compareTo(m1.getId()))
-                    .forEach(m -> {
-                        moduleRepository.deleteMenuAuthorities(m.getId());
-                        moduleRepository.deleteMenu(m.getId());
+        Optional<ModuleArtifact> artifact = moduleArtifactRepository.findByModule (module);
+        artifact.ifPresent (moduleArtifactRepository::delete);
+        transactionTemplate.execute (ts -> {
+            menuRepository.findByModule (module).stream ()
+                    .sorted ((m1, m2) -> m2.getId ().compareTo (m1.getId ()))
+                    .forEach (m -> {
+                        moduleRepository.deleteMenuAuthorities (m.getId ());
+                        moduleRepository.deleteMenu (m.getId ());
                     });
             //moduleRepository.deleteMenus(module.getId());
-            moduleRepository.deleteDependency(module.getId());
-            moduleRepository.deleteWebModule(module.getId());
-            moduleRepository.deleteAuthorities(module.getId());
-            moduleRepository.deleteViewTemplates(module.getId());
-            moduleRepository.deleteArtifact(module.getId());
-            jdbcTemplate.update("delete from module where id = ?", module.getId());
+            moduleRepository.deleteDependency (module.getId ());
+            moduleRepository.deleteWebModule (module.getId ());
+            moduleRepository.deleteAuthorities (module.getId ());
+            moduleRepository.deleteViewTemplates (module.getId ());
+            moduleRepository.deleteArtifact (module.getId ());
+            jdbcTemplate.update ("delete from module where id = ?", module.getId ());
             return null;
         });
     }

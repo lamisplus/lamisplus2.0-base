@@ -14,8 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @AcrossDepends(
         required = {
-        AcrossHibernateJpaModule.NAME,
-        AcrossWebModule.NAME
+        AcrossHibernateJpaModule.NAME
 })
 @Slf4j
 @EnableSwagger2
@@ -28,8 +27,8 @@ public class BaseModule extends AcrossModule {
     public BaseModule() {
         super ();
         addApplicationContextConfigurer (new ComponentScanConfigurer (
-                getClass ().getPackage ().getName () + ".module",
                 getClass ().getPackage ().getName () + ".configurer",
+                getClass ().getPackage ().getName () + ".module",
                 getClass ().getPackage ().getName () + ".controller",
                 getClass ().getPackage ().getName () + ".domain",
                 getClass ().getPackage ().getName () + ".repository",

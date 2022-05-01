@@ -29,15 +29,16 @@ import java.util.List;
 
 @AcrossApplication(
         modules = {
-                BaseModule.NAME,
-                AcrossHibernateJpaModule.NAME,
-                AcrossWebModule.NAME
+                AcrossWebModule.NAME,
+                BaseModule.NAME
+
         })
 @Slf4j
 @EnableSwagger2
 @EnableAsync
 @EnableScheduling
 public class LamisPlusApplication extends SpringBootServletInitializer {
+
 
     private static ConfigurableApplicationContext context;
 

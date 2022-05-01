@@ -83,7 +83,8 @@ public class ModuleManager {
     private final ModuleDependencyRepository moduleDependencyRepository;
     private final ApplicationProperties properties;
     private final ModuleDeleteService moduleService;
-    //private final SimpMessageSendingOperations messagingTemplate;
+
+    private final SimpMessageSendingOperations messagingTemplate;
     private final ModuleMapModifier moduleMapModifier;
     private final JdbcTemplate jdbcTemplate;
 
@@ -237,7 +238,7 @@ public class ModuleManager {
         removeDuplicateRepositories();
         log.info("Module {} successfully installed.", module.getName());
         if (multi != null && !multi) {
-           // messagingTemplate.convertAndSend("/topic/modules-changed", module.getName());
+            messagingTemplate.convertAndSend("/topic/modules-changed", module.getName());
         }
 
         module.setInError(false);
@@ -374,7 +375,7 @@ public class ModuleManager {
         if (uninstall || update) {
             moduleRepository.findByName(name).ifPresent(moduleService::deleteModule);
         }
-        //messagingTemplate.convertAndSend("/topic/modules-changed", module.getName());
+        messagingTemplate.convertAndSend("/topic/modules-changed", module.getName());
         return response;
     }
 
