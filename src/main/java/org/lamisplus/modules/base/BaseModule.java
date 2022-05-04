@@ -52,23 +52,4 @@ public class BaseModule extends AcrossModule {
     @Override
     public String getDescription() {
         return "Module containing LAMISPlus";    }
-
-    //runtime JPA module and datasource
-    @Bean
-    @Primary
-    @ConfigurationProperties("org.lamisplus.modules.base")
-    public DataSourceProperties baseDataSourceProperties() {
-        return new DataSourceProperties();
-    }
-
-    @Bean
-    @ConfigurationProperties("org.lamisplus.modules.base")
-    public DataSource baseDataSource() {
-        return baseDataSourceProperties().initializeDataSourceBuilder().build();
-    }
-
-    @Bean
-    public AcrossHibernateJpaModule baseJpaModule() {
-        return AcrossHibernateJpaModule.builder().prefix( "base" ).build();
-    }
 }

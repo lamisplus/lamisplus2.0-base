@@ -1,10 +1,12 @@
 package org.lamisplus.modules.base.configurer;
 
 import com.foreach.across.core.annotations.ModuleConfiguration;
+import com.foreach.across.modules.hibernate.jpa.AcrossHibernateJpaModule;
 import com.foreach.across.modules.hibernate.provider.HibernatePackageConfigurer;
 import com.foreach.across.modules.hibernate.provider.HibernatePackageRegistry;
-import lombok.extern.slf4j.Slf4j;
 import org.lamisplus.modules.base.domain.entity.BaseDomain;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 /**
@@ -16,9 +18,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
  * where to scan for additional entities.  That's the purpose of this class.
  */
 @ModuleConfiguration("BaseJpaModule")
-@EntityScan(basePackages = {"org.lamisplus.modules.base.domain.entity"})
-@Slf4j
+@EntityScan(basePackageClasses = BaseDomain.class)
 public class BaseEntityScanConfiguration implements HibernatePackageConfigurer {
+    private static final Logger log = LoggerFactory.getLogger(org.lamisplus.modules.base.configurer.BaseEntityScanConfiguration.class);
+
     public BaseEntityScanConfiguration() {
     }
 
