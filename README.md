@@ -2,16 +2,16 @@
 
 This is an Open source Electronic Medical Record (EMR) Application.
 
-# Technology we use
+###### Technology we use
 1. Spring Boot: An open-source micro framework.
 2. Across Framework for module bootstrapping.
 3. React: A free and open-source front-end JavaScript library for building user interfaces.
 
-#Requirements
+###### Requirements
 *   Java 1.8
 *   Postgres SQL
 
-# Getting started
+###### Getting started
     1.  Prerequisites
         -   A knowlegde of java, maven and Spring boot
         -   Postgres SQL
@@ -26,6 +26,6 @@ This is an Open source Electronic Medical Record (EMR) Application.
          url: jdbc:postgresql://localhost:5432/your-database-name`
     6.  Run your application  - spring-boot:run
     7.  The application starts up on your default browser on port 8282
-    8. Login and we await your feedback.
+    8.  Login and we await your feedback.
 
 

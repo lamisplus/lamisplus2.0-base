@@ -2,7 +2,7 @@ package org.lamisplus.modules.base.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.audit4j.core.util.Log;
+//import org.audit4j.core.util.Log;
 import org.lamisplus.modules.base.controller.apierror.EntityNotFoundException;
 import org.lamisplus.modules.base.controller.apierror.IllegalTypeException;
 import org.lamisplus.modules.base.controller.apierror.RecordExistException;

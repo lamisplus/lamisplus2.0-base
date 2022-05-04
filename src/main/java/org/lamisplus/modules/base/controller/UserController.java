@@ -30,7 +30,7 @@ public class UserController {
     private final UserService userService;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private final SessionRegistry sessionRegistry;
+    //private final SessionRegistry sessionRegistry;
 
 
     @GetMapping("/{id}")
@@ -74,11 +74,11 @@ public class UserController {
         return ResponseEntity.ok(userService.changeOrganisationUnit(id, userDTO));
     }*/
 
-    @GetMapping("/logged-in/count")
+    /*@GetMapping("/logged-in/count")
     public Integer getNumberOfLoggedInUsers() {
         final List<Object> allPrincipals = sessionRegistry.getAllPrincipals();
         return  allPrincipals.size();
-    }
+    }*/
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
