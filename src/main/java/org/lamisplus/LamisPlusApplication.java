@@ -1,15 +1,11 @@
 package org.lamisplus;
 
 import com.foreach.across.config.AcrossApplication;
-import com.foreach.across.modules.hibernate.jpa.AcrossHibernateJpaModule;
 import com.foreach.across.modules.web.AcrossWebModule;
 import lombok.extern.slf4j.Slf4j;
 import org.lamisplus.modules.base.BaseModule;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -23,7 +19,6 @@ import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,7 +32,7 @@ import java.util.List;
 @EnableSwagger2
 @EnableAsync
 @EnableScheduling
-public class LamisPlusApplication extends SpringBootServletInitializer {
+public class LamisPlusApplication  {
 
 
     private static ConfigurableApplicationContext context;
@@ -50,10 +45,10 @@ public class LamisPlusApplication extends SpringBootServletInitializer {
         context = SpringApplication.run (LamisPlusApplication.class, args);
     }
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources (LamisPlusApplication.class);
-    }
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//        return application.sources (LamisPlusApplication.class);
+//    }
 
     /*
      * Provides sensible defaults and convenience methods for configuration.

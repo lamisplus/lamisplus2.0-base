@@ -12,9 +12,9 @@ public interface RoleRepository extends JpaRepository<Role, Long>, JpaSpecificat
 
     @EntityGraph(attributePaths = "permission")
     Optional<Role> findByName(String name);
-
-    @EntityGraph(attributePaths = "permission")
-    Optional<Role> findById(Long id);
+//
+//    @EntityGraph(attributePaths = "permission")
+//    Optional<Role> findById(Long id);
 
     List<Role> findAllByArchived(int archived);
 }

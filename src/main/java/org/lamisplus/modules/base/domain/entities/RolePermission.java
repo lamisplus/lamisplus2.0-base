@@ -9,13 +9,15 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode
 @Table(name = "role_permission")
-@IdClass(RolePermissionPK.class)
+//@IdClass(RolePermissionPK.class)
 public class RolePermission{
-    @Column(name = "role_id")
-    @Id
-    private Long roleId;
-
-    @Column(name = "permission_id")
-    @Id
-    private Long permissionId;
+//    @Column(name = "role_id")
+//    @Id
+//    private Long roleId;
+//
+//    @Column(name = "permission_id")
+//    @Id
+//    private Long permissionId;
+    @EmbeddedId
+    RolePermissionPK rolePermissionPK;
 }

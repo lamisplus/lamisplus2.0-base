@@ -11,6 +11,7 @@ import com.foreach.across.core.support.AcrossContextBuilder;
 import com.foreach.across.modules.hibernate.jpa.AcrossHibernateJpaModule;
 import com.foreach.across.modules.hibernate.jpa.aop.JpaRepositoryInterceptor;
 import com.foreach.across.modules.web.mvc.PrefixingRequestMappingHandlerMapping;
+import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.lamisplus.modules.base.configurer.ContextProvider;
+import org.lamisplus.modules.base.configurer.DataSourceConfig;
 import org.lamisplus.modules.base.domain.entities.ModuleArtifact;
 import org.lamisplus.modules.base.configurer.ApplicationProperties;
 import org.lamisplus.modules.base.domain.repositories.ModuleArtifactRepository;
@@ -33,6 +35,8 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.MethodIntrospector;
@@ -63,6 +67,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -87,6 +92,10 @@ public class ModuleManager {
     private final SimpMessageSendingOperations messagingTemplate;
     private final ModuleMapModifier moduleMapModifier;
     private final JdbcTemplate jdbcTemplate;
+
+    private   final DataSourceConfig dataSourceConfig;
+    ;
+
 
     @Transactional
     public synchronized ModuleResponse bootstrapModule(final Module module, Boolean install, Boolean multi) {
@@ -170,7 +179,11 @@ public class ModuleManager {
                         if (mn.equals(module.getName())) {
                             moduleFound[0] = true;
                             AcrossModule acrossModule = moduleSupplier.get();
-                            context[0] = bootstrapAcrossModule(acrossModule);
+                            try {
+                                context[0] = bootstrapAcrossModule(acrossModule);
+                            } catch (SQLException e) {
+                                throw new RuntimeException (e);
+                            }
                             removeDuplicateJpaTransactionManager();
                             removeDuplicateJmxMappingEndpoint();
                             removeDuplicateSimpMessage();
@@ -447,8 +460,11 @@ public class ModuleManager {
     }
     */
 
-    private DataSource getDataSource() {
-        return parent.getDataSource();
+    private DataSource getDataSource() throws SQLException {
+        // I am here
+        log.info ("About getting datasource {}", dataSourceConfig.dataSource ().getClass ().getName ());
+        log.info ("About getting datasource {}", dataSourceConfig.dataSource ().getConnection ().getSchema ());
+        return dataSourceConfig.dataSource ();
     }
 
     private ZonedDateTime toZonedDateTime(Date date) {
@@ -598,7 +614,7 @@ public class ModuleManager {
         return savedModule[0];
     }
 
-    private AcrossContext bootstrapAcrossModule(AcrossModule acrossModule) {
+    private AcrossContext bootstrapAcrossModule(AcrossModule acrossModule) throws SQLException {
         AcrossContext context;
         DataSource dataSource = getDataSource();
         acrossModule.addRuntimeDependency(AcrossHibernateJpaModule.NAME);
@@ -677,4 +693,5 @@ public class ModuleManager {
         public String projectName = UNKNOWN_VALUE;
         public boolean available;
     }
+
 }

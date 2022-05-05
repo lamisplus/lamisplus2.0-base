@@ -9,6 +9,7 @@ import org.lamisplus.modules.base.domain.dto.RoleDTO;
 import org.lamisplus.modules.base.domain.entities.Permission;
 import org.lamisplus.modules.base.domain.entities.Role;
 import org.lamisplus.modules.base.domain.entities.RolePermission;
+import org.lamisplus.modules.base.domain.entities.RolePermissionPK;
 import org.lamisplus.modules.base.domain.repositories.PermissionRepository;
 import org.lamisplus.modules.base.domain.repositories.RolePermissionRepository;
 import org.lamisplus.modules.base.domain.repositories.RoleRepository;
@@ -50,8 +51,11 @@ public class RoleService {
         RolePermission rolePermission = new RolePermission();
 
         permissions.forEach(permission -> {
-            rolePermission.setPermissionId(permission.getId());
-            rolePermission.setRoleId(savedRole.getId());
+            RolePermissionPK rolePermissionPK =  new RolePermissionPK ();
+            rolePermissionPK.setRoleId (savedRole.getId ());
+            rolePermissionPK.setPermissionId (permission.getId());
+            //rolePermission.setPermissionId(permission.getId());
+            //rolePermission.setRoleId(savedRole.getId());
             rolePermissions.add(rolePermission);
         });
         rolePermissionRepository.saveAll(rolePermissions);

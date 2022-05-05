@@ -8,12 +8,13 @@ import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode
+@Embeddable
 public class RolePermissionPK implements Serializable {
-    @Id
+    //@Id
     @Column(name = "role_id")
     private Long roleId;
 
-    @Id
+   // @Id
     @Column(name = "permission_id")
     private Long permissionId;
 

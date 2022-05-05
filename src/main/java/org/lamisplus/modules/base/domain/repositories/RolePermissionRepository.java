@@ -1,6 +1,7 @@
 package org.lamisplus.modules.base.domain.repositories;
 
 import org.lamisplus.modules.base.domain.entities.RolePermission;
+import org.lamisplus.modules.base.domain.entities.RolePermissionPK;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,9 +11,9 @@ import java.util.Optional;
 @Repository
 public interface RolePermissionRepository extends JpaRepository<RolePermission, Long> {
 
-    Optional<RolePermission> findByRoleIdAndPermissionId(Long roleId, Long permissionId);
+    Optional<RolePermission> findByRolePermissionPK(RolePermissionPK permissionPK);
 
-    List<RolePermission> findAllByRoleId(Long roleId);
+    List<RolePermission> findAllByRolePermissionPKContaining(Long roleId);
 
-    void deleteByRoleId(Long roleId);
+    void deleteByRolePermissionPKContaining(Long roleId);
 }

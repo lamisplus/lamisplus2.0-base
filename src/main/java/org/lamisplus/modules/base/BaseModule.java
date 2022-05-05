@@ -31,15 +31,16 @@ public class BaseModule extends AcrossModule {
                 getClass ().getPackage ().getName () + ".module",
                 getClass ().getPackage ().getName () + ".controller",
                 getClass ().getPackage ().getName () + ".domain",
-                getClass ().getPackage ().getName () + ".repository",
+                getClass ().getPackage ().getName () + ".repositories",
                 getClass ().getPackage ().getName () + ".service",
                 getClass ().getPackage ().getName () + ".yml",
                 getClass ().getPackage ().getName () + ".util",
                 getClass ().getPackage ().getName () + ".security",
                 getClass ().getPackage ().getName () + ".interceptor",
                 getClass ().getPackage ().getName () + ".extensions",
-                getClass ().getPackage ().getName () + ".installers"
-//                "org.springframework.web.socket"
+                getClass ().getPackage ().getName () + ".installers",
+               "org.springframework.web.socket"
+                //"com.blazebit.persistence.spring.data.webmvc"
         ));
     }
 
